@@ -4,18 +4,18 @@ public class LocalMarkdownProvider : IMarkdownContentProvider
 {
     private readonly HttpClient httpClient;
     private readonly static MarkdownPipeline markdownPipeline = new MarkdownPipelineBuilder()
-                    .UseAbbreviations()
-                    .UseCustomContainers()
-                    .UseEmphasisExtras()
-                    .UseFootnotes()
+                    // .UseAbbreviations()
+                    // .UseCustomContainers()
+                    // .UseEmphasisExtras()
+                    // .UseFootnotes()
                     // .UseGridTables()
-                    .UsePipeTables()
+                    // .UsePipeTables()
                     //    .UseMediaLinks()
-                    .UseTaskLists()
+                    // .UseTaskLists()
                     //    .UseAutoLinks()
                     //    .UseEmojiAndSmiley()
                     //    .UseAutoIdentifiers()
-                    .UseGenericAttributes() // Must be last as it is one parser that is modifying other parsers
+                    // .UseGenericAttributes() // Must be last as it is one parser that is modifying other parsers
                     .Build();
 
 

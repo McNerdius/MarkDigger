@@ -1,6 +1,4 @@
-@page "/{*blob}"
-
-@namespace MarkdownViewer.Components
+@page "/{*page}"
 
 @if (found is null)
 {
@@ -17,8 +15,7 @@ else
 
 @code
 {
-    [Parameter] public string? blob { get; set; }
-
+    [Parameter] public string? page { get; set; }
 
     [Inject] public IMarkdownContentProvider MarkdownContentProvider { get; set; }
 
@@ -27,19 +24,19 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        blob = blob switch
+        page = page switch
         {
             @* null => "index", *@
-            string _ when blob.Contains('#') => blob[..blob.IndexOf('#')],
-            _ => blob
+            string _ when page.Contains('#') => page[..page.IndexOf('#')],
+            _ => page
         };
      
-        if (string.IsNullOrEmpty(blob))
+        if (string.IsNullOrEmpty(page))
             return;
 
         found = null;
 
-        var markdown = await MarkdownContentProvider.GetMarkdownContent(blob);
+        var markdown = await MarkdownContentProvider.GetMarkdownContent(page);
 
         if (markdown is not null)
         {

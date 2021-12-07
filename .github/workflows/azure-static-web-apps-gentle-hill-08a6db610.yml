@@ -32,6 +32,7 @@ jobs:
         id: generate
         with:
           path: "Demo/wwwroot/markdown"
+
       - name: Get the output files
         run: echo "generated ${{ steps.generate.outputs.files }}"
 
