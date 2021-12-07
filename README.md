@@ -15,6 +15,8 @@ Usage info should resemble....
 
 But it's just a proof of concept for the moment, i'll link to actual usage soon.
 
+---
+
 `Demo` is my use-case.
 
 The goal: Rendering Markdown in a Blazor WebAssembly Azure Static Web App.
