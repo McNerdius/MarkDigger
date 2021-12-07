@@ -9,6 +9,9 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Build Code
+        run: ./build.ps1
+        shell: pwsh
       - name: Generate Markdown
         uses: ./ # Uses an action in the root directory
         id: generate
@@ -16,4 +19,4 @@ jobs:
           path: "Demo/wwwroot/markdown"
       # Use the output from the `generate` step
       - name: Get the output files
-        run: echo "Files generated: ${{ steps.generate.outputs.files }}"
+        run: echo "Files generated ${{ steps.generate.outputs.files }}"
