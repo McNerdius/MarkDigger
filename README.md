@@ -8,7 +8,6 @@ Usage info should resemble....
 ```
 - name: Generate Markdown
   uses: McNerdius/Markdigger@main
-  id: generate
   with:
     path: "/wwwroot/markdown"
     extensions: "pipetables+customcontainers"
