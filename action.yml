@@ -1,11 +1,14 @@
-name: 'Sample Dotnet Action'
-description: 'sample dotnet based action'
-author: 'Your name or organization here'
+name: "MarkDigger"
+description: "Markdown to HTML using MarkDig + Extensions"
+author: "Your name or organization here"
 inputs:
-  milliseconds:
+  path:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: "path to markdown files"
+  extensions:
+    required: false
+    description: "extensions to run. see https://github.com/xoofx/markdig/blob/2b6dde941541be7c34ee3c6a0abe2d2d54548947/src/Markdig/MarkdownExtensions.cs#L538"
+
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: "node12"
+  main: "index.js"

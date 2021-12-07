@@ -6,22 +6,14 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build Code
-      run: ./build.ps1
-      shell: pwsh
-    - name: Prepare Testing Action
-      run: |
-        (Get-Content -Path ./.github/workflows/testing-action/action.yml -Raw) `
-            -replace '__CUSTOM_ACTION_REPO__',$env:GITHUB_REPOSITORY `
-            -replace '__GITHUB_SHA__',$env:GITHUB_SHA `
-        | Set-Content -Path ./.github/workflows/testing-action/action.yml
-      shell: pwsh
-    - name: Run Action
-      uses: ./.github/workflows/testing-action
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+      - name: Run Build Script
+        run: ./build.ps1
+        shell: pwsh

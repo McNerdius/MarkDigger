@@ -1,0 +1,26 @@
+@page "/{*blob}"
+
+<div class="h-full" >
+    <MarkBlobView Blob="@blob">
+        <BlobLoading>
+            <Loading/>
+        </BlobLoading>
+        <BlobNotFound>
+            <NotFound/>
+        </BlobNotFound>
+    </MarkBlobView>
+</div>
+
+@code
+{
+    [Parameter] public string? blob { get; set; }
+    protected override void OnParametersSet()
+    {
+        blob = blob switch
+        {
+            null => "overview",
+            string _ when blob.Contains('#') => blob[..blob.IndexOf('#')],
+            _ => blob
+        };
+    }
+}
