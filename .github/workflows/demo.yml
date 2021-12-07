@@ -1,26 +1,26 @@
-on: [push]
+# on: [push]
 
-jobs:
-  hello_world_job:
-    runs-on: ubuntu-latest
-    name: Generate Markdown
-    steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 6.0.x
-      - name: Build Code
-        run: ./build.ps1
-        shell: pwsh
-      - name: Generate Markdown
-        uses: ./ # Uses an action in the root directory
-        id: generate
-        with:
-          path: "Demo/wwwroot/markdown"
-      # Use the output from the `generate` step
-      - name: Get the output files
-        run: echo "generated ${{ steps.generate.outputs.files }}"
+# jobs:
+#   hello_world_job:
+#     runs-on: ubuntu-latest
+#     name: Generate Markdown
+#     steps:
+#       # To use this repository's private action,
+#       # you must check out the repository
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       - name: Setup .NET
+#         uses: actions/setup-dotnet@v1
+#         with:
+#           dotnet-version: 6.0.x
+#       - name: Build Code
+#         run: ./build.ps1
+#         shell: pwsh
+#       - name: Generate Markdown
+#         uses: ./ # Uses an action in the root directory
+#         id: generate
+#         with:
+#           path: "Demo/wwwroot/markdown"
+#       # Use the output from the `generate` step
+#       - name: Get the output files
+#         run: echo "generated ${{ steps.generate.outputs.files }}"
