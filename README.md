@@ -59,6 +59,6 @@ But i want the best of both worlds:  The `Demo` project uses method #2 when in `
 
 https://gentle-hill-08a6db610.azurestaticapps.net/
 
-
+# not sure how i broke the "foo bar" two-level link thing, probably an Azure setting.  more work to be done !
 
 
