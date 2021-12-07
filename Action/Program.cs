@@ -10,14 +10,9 @@ public class Program
 
     static async Task Main(string[] args)
     {
-        core.Info(Directory.GetCurrentDirectory());
-        core.Info(Environment.CurrentDirectory);
-
         try
         {
             var path = core.GetInput("path", required: true);
-            core.Info(string.Join(", ", Directory.GetFileSystemEntries(path)));
-
             var extensions = core.GetInput("extensions") ?? "";
 
             var pipeline = createPipeline(extensions);
@@ -35,7 +30,7 @@ public class Program
                 outputs.Add(newFile);
             }
 
-            core.SetOutput("files", outputs);
+            core.SetOutput("files", string.Join(", ", outputs));
         }
         catch (Exception ex)
         {
