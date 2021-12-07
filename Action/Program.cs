@@ -25,7 +25,7 @@ public class Program
                 var markdown = File.ReadAllText(file.FullName);
                 var html = Markdown.ToHtml(markdown, pipeline);
 
-                var newFile = $@"{file.Directory}\{file.Name[..^2]}html";
+                var newFile = $"{file.Directory}/{file.Name[..^2]}html";
                 File.WriteAllText(newFile, html);
                 outputs.Add(newFile);
             }

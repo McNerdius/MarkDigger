@@ -1,26 +1,54 @@
 @page "/{*blob}"
 
-<div class="h-full" >
-    <MarkBlobView Blob="@blob">
-        <BlobLoading>
-            <Loading/>
-        </BlobLoading>
-        <BlobNotFound>
-            <NotFound/>
-        </BlobNotFound>
-    </MarkBlobView>
-</div>
+@namespace MarkdownViewer.Components
+
+@if (found is null)
+{
+    <div>Loading...</div>
+}
+else if (found is false)
+{
+    <div>Not Found !</div>
+}
+else
+{
+    @((MarkupString)content)
+} 
 
 @code
 {
     [Parameter] public string? blob { get; set; }
-    protected override void OnParametersSet()
+
+
+    [Inject] public IMarkdownContentProvider MarkdownContentProvider { get; set; }
+
+    private string? content = null;
+    private bool? found { get; set; } = null;
+
+    protected override async Task OnParametersSetAsync()
     {
         blob = blob switch
         {
-            null => "overview",
+            @* null => "index", *@
             string _ when blob.Contains('#') => blob[..blob.IndexOf('#')],
             _ => blob
         };
+     
+        if (string.IsNullOrEmpty(blob))
+            return;
+
+        found = null;
+
+        var markdown = await MarkdownContentProvider.GetMarkdownContent(blob);
+
+        if (markdown is not null)
+        {
+            content = markdown;
+            found = true;
+        }
+        else
+        {
+            found = false;
+        }
     }
 }

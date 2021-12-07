@@ -10,7 +10,7 @@ public sealed class EmbeddedHtmlProvider : IMarkdownContentProvider
     {
         assembly = Assembly.GetExecutingAssembly();
         // TODO: magic string
-        prefix = $"Demo.wwwroot.";
+        prefix = $"Demo.wwwroot.markdown.";
         resources = assembly.GetManifestResourceNames()
                             .Select(name => name.Replace(prefix, ""))
                             .ToList();

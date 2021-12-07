@@ -24,7 +24,7 @@ public class LocalMarkdownProvider : IMarkdownContentProvider
 
     public async Task<string?> GetMarkdownContent(string name)
     {
-        var response = await httpClient.GetAsync($"{httpClient.BaseAddress}/{name}.md")
+        var response = await httpClient.GetAsync($"{httpClient.BaseAddress}/markdown/{name}.md")
                                        .ConfigureAwait(false);
 
         if (response.IsSuccessStatusCode)
