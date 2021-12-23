@@ -1,0 +1,18 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'prism.css';
+
+.mc-code-block {
+  @apply grid-cols-[min-content,auto];
+}
+
+.mc-code-filename {
+  @apply col-span-2;
+}
+
+.mc-code {}
+
+.mc-code-ins {}
+
+.mc-code-del {}

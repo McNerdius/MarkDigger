@@ -1,0 +1,16 @@
+{
+  "name": "highlighterextension",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "mctest": "mctest.js"
+  },
+  "dependencies": {
+    "postcss-import": "^14.0.2",
+    "prismjs": "^1.25.0",
+    "yargs": "^17.3.0"
+  }
+}

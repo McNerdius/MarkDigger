@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McPrism", "McPrism\McPrism.csproj", "{B88A4022-6B44-40B7-9D67-AB58847E48C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismPlayground", "PrismPlayground\PrismPlayground.csproj", "{4184F5C3-FB14-4E2E-BEA4-3E37F14BB8E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McPrism.Tests", "McPrism.Tests\McPrism.Tests.csproj", "{4D393E2B-B291-484B-98B6-E32B60D73128}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B88A4022-6B44-40B7-9D67-AB58847E48C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88A4022-6B44-40B7-9D67-AB58847E48C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88A4022-6B44-40B7-9D67-AB58847E48C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88A4022-6B44-40B7-9D67-AB58847E48C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4184F5C3-FB14-4E2E-BEA4-3E37F14BB8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4184F5C3-FB14-4E2E-BEA4-3E37F14BB8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4184F5C3-FB14-4E2E-BEA4-3E37F14BB8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4184F5C3-FB14-4E2E-BEA4-3E37F14BB8E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D393E2B-B291-484B-98B6-E32B60D73128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D393E2B-B291-484B-98B6-E32B60D73128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D393E2B-B291-484B-98B6-E32B60D73128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D393E2B-B291-484B-98B6-E32B60D73128}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
