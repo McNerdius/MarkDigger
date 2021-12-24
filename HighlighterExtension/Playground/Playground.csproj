@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <ProjectReference Include="..\McPrism\McPrism.csproj" />
+        <ProjectReference Include="..\HighlighterExtension\HighlighterExtension.csproj" />
+        <ProjectReference Include="..\PrismHighlighter\PrismHighlighter.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="markdig" Version="0.26.0" />

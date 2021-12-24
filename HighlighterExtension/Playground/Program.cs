@@ -2,7 +2,8 @@
 using System.IO;
 
 using Markdig;
-using Markdig.McPrism;
+using Markdig.CodeBlockHighlighter;
+using Markdig.CodeBlockHighlighter.PrismHighlighter;
 
 void md()
 {
@@ -17,10 +18,10 @@ void md()
 ``` 
 ";
 
-    var pipeline = new MarkdownPipelineBuilder().UsePrism().UseGenericAttributes().Build();
+    var pipeline = new MarkdownPipelineBuilder().UseCodeBlockHighlighter( new PrismHighlighter() )/* .UseGenericAttributes() */.Build();
     // var pipeline = new MarkdownPipelineBuilder().UseGenericAttributes().Build();
 
-    Environment.CurrentDirectory = @"C:\Users\McNerdius\Documents\Repos\MarkDigger\HighlighterExtension\McPrism";
+    Environment.CurrentDirectory = @"C:\Users\McNerdius\Repos\MarkDigger\HighlighterExtension\PrismHighlighter";
 
     var html = Markdown.ToHtml( markdown, pipeline );
 

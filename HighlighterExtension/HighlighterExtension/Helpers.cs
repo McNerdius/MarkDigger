@@ -1,6 +1,6 @@
 using Markdig.Renderers.Html;
 
-namespace Markdig.McPrism;
+namespace Markdig.CodeBlockHighlighter;
 
 static class HtmlAttributeHelper
 {
@@ -22,7 +22,7 @@ public static class TrimEmptyLinesExtensions
 
     }
 
-    public static IEnumerable<CodeLineInfo> Trim( this IEnumerable<CodeLineInfo> source )
+    public static IEnumerable<HighlightedCodeLine> Trim( this IEnumerable<HighlightedCodeLine> source )
     {
         var strings = source.Select( element => element.Content );
 

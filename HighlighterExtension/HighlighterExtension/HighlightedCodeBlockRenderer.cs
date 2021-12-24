@@ -5,15 +5,19 @@ using Markdig.Renderers;
 using Markdig.Renderers.Html;
 using Markdig.Syntax;
 
-namespace Markdig.McPrism;
+namespace Markdig.CodeBlockHighlighter;
 
-public class PrismCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
+public class HighlightedCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
 {
     private readonly CodeBlockRenderer codeBlockRenderer;
+    private readonly ICodeBlockHighlighter? highlighter;
 
-    public PrismCodeBlockRenderer( CodeBlockRenderer? codeBlockRenderer )
+    public HighlightedCodeBlockRenderer(
+        CodeBlockRenderer? codeBlockRenderer,
+        ICodeBlockHighlighter? highlighter )
     {
         this.codeBlockRenderer = codeBlockRenderer ?? new CodeBlockRenderer();
+        this.highlighter = highlighter;
     }
 
     protected override void Write( HtmlRenderer renderer, CodeBlock node )
@@ -34,21 +38,23 @@ public class PrismCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
             _ => throw new NotSupportedException()
         };
 
-        if ( string.IsNullOrWhiteSpace( language ) || !PrismSupportedLanguages.IsSupportedLanguage( language ) )
-        {
-            codeBlockRenderer.Write( renderer, node );
-            return;
-        }
+        // if ( string.IsNullOrWhiteSpace( language ) || !PrismSupportedLanguages.IsSupportedLanguage( language ) )
+        // {
+        //     codeBlockRenderer.Write( renderer, node );
+        //     return;
+        // }
 
-        var codeBlock = new CodeBlockInfo( filename );
+        var codeBlock = new HighlightedCodeBlock( filename );
 
-        extractCode( node, ref codeBlock );
-        highlightCode( language, ref codeBlock );
+        extractCode( node, codeBlock );
 
-        codeBlock.Render( ref renderer );
+        if ( highlighter is not null )
+            codeBlock = highlighter.Highlight( language, codeBlock );
+
+        codeBlock.Render( renderer );
     }
 
-    internal void extractCode( LeafBlock node, ref CodeBlockInfo codeBlock )
+    internal void extractCode( LeafBlock node, HighlightedCodeBlock codeBlock )
     {
         var lines = node.Lines.Lines;
         var totalLines = lines.Length;
@@ -74,32 +80,4 @@ public class PrismCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
             codeBlock.AddLine( diff, lineText );
         }
     }
-
-    internal void highlightCode( string language, ref CodeBlockInfo codeBlock )
-    {
-        var file = Path.GetTempFileName();
-        File.WriteAllLines( file, codeBlock.Lines );
-
-        var a = new Process
-        {
-            StartInfo = new ProcessStartInfo( "node" )
-            {
-                RedirectStandardOutput = true,
-                Arguments = $"mctest.js --file={file} --language={language}",
-            }
-        };
-
-        a.Start();
-        a.WaitForExit();
-
-        var lines = new List<string>();
-
-        while ( a.StandardOutput.ReadLine() is string s )
-        {
-            lines.Add( s );
-        }
-
-        codeBlock = codeBlock with { Lines = lines };
-    }
-
 }

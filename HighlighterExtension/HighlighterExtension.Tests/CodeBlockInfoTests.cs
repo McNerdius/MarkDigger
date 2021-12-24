@@ -1,7 +1,7 @@
 using System;
 
 using Markdig;
-using Markdig.McPrism;
+using Markdig.CodeBlockHighlighter;
 
 using Xunit;
 
@@ -19,7 +19,7 @@ Console.WriteLine(""No Diff"");
 ";
 
     static MarkdownPipeline pipeline
-        => new MarkdownPipelineBuilder().UsePrism().UseGenericAttributes().Build();
+        => new MarkdownPipelineBuilder().UseCodeBlockHighlighter()/* .UseGenericAttributes() */.Build();
 
     static string[] htmlLines
         => Markdown.ToHtml( testBlock, pipeline ).Split( '\n' );

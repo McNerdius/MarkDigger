@@ -10,17 +10,12 @@
       "request": "launch",
       "preLaunchTask": "build",
       // If you have changed target frameworks, make sure to update the program path.
-      "program": "${workspaceFolder}/PrismPlayground/bin/Debug/net6.0/PrismPlayground.dll",
+      "program": "${workspaceFolder}/Playground/bin/Debug/net6.0/Playground.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/PrismPlayground",
+      "cwd": "${workspaceFolder}/Playground",
       // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
       "console": "internalConsole",
-      "stopAtEntry": false
-    },
-    {
-      "name": ".NET Core Attach",
-      "type": "coreclr",
-      "request": "attach"
+      "stopAtEntry": true
     }
   ]
 }

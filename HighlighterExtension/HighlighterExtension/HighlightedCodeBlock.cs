@@ -1,10 +1,10 @@
 using Markdig.Renderers;
 
-namespace Markdig.McPrism;
+namespace Markdig.CodeBlockHighlighter;
 
-public record CodeBlockInfo( string FileName = "" )
+public record HighlightedCodeBlock( string FileName = "" )
 {
-    private List<CodeLineInfo> lineInfo = new();
+    private List<HighlightedCodeLine> lineInfo = new();
 
     public void Trim() => lineInfo = lineInfo.Trim().ToList();
 
@@ -26,13 +26,13 @@ public record CodeBlockInfo( string FileName = "" )
             {
                 lineInfo = lineInfo.Zip
                 (
-                    value, ( info, content ) => new CodeLineInfo( info.DiffState, content )
+                    value, ( info, content ) => new HighlightedCodeLine( info.DiffState, content )
                 ).ToList();
             }
         }
     }
 
-    public void Render( ref HtmlRenderer renderer )
+    public void Render( HtmlRenderer renderer )
     {
         // mc-code-block: 2*n css grid
         renderer.Write( "<div" );
@@ -51,7 +51,7 @@ public record CodeBlockInfo( string FileName = "" )
 
         { // CodeLineInfo == 2 divs
             foreach ( var line in lineInfo.Trim() )
-                line.Render( ref renderer );
+                line.Render( renderer );
         }
 
         // /mc-code-block
