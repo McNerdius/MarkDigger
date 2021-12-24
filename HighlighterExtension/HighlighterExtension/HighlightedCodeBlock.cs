@@ -46,6 +46,7 @@ public record HighlightedCodeBlock( string FileName = "" )
             renderer.Write( ">" );
 
             renderer.Write( FileName );
+
             renderer.WriteLine( "</div>" );
         }
 
@@ -56,6 +57,5 @@ public record HighlightedCodeBlock( string FileName = "" )
 
         // /mc-code-block
         renderer.WriteLine( "</div>" );
-
     }
 }

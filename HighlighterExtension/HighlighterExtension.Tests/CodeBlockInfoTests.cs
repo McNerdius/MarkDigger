@@ -11,10 +11,12 @@ public class BasicTests
 {
     static string testBlock =
 @"
-```csharp:foo.cs {#id .class}
-+Console.WriteLine(""Diff Add"");
--Console.WriteLine(""Diff Remove"");
-Console.WriteLine(""No Diff"");
+```csharp:foo.cs
+{
++    Console.WriteLine(""Diff Add"");
+-    Console.WriteLine(""Diff Remove"");
+    Console.WriteLine(""No Diff"");
+}
 ``` 
 ";
 

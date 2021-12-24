@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlighterExtension.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismHighlighter", "PrismHighlighter\PrismHighlighter.csproj", "{33D168D1-94C6-4C07-AC02-F62DD7C02481}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmPlayground", "WasmPlayground\WasmPlayground.csproj", "{B312C8A4-C167-4656-AB01-629879651827}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{33D168D1-94C6-4C07-AC02-F62DD7C02481}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33D168D1-94C6-4C07-AC02-F62DD7C02481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33D168D1-94C6-4C07-AC02-F62DD7C02481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B312C8A4-C167-4656-AB01-629879651827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B312C8A4-C167-4656-AB01-629879651827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B312C8A4-C167-4656-AB01-629879651827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B312C8A4-C167-4656-AB01-629879651827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

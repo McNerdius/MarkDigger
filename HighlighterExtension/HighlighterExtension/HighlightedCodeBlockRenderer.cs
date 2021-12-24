@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-using Markdig.Parsers;
+﻿using Markdig.Parsers;
 using Markdig.Renderers;
 using Markdig.Renderers.Html;
 using Markdig.Syntax;
@@ -37,12 +35,6 @@ public class HighlightedCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
             { Length: 2 } => (blockInfo[0], blockInfo[1]),
             _ => throw new NotSupportedException()
         };
-
-        // if ( string.IsNullOrWhiteSpace( language ) || !PrismSupportedLanguages.IsSupportedLanguage( language ) )
-        // {
-        //     codeBlockRenderer.Write( renderer, node );
-        //     return;
-        // }
 
         var codeBlock = new HighlightedCodeBlock( filename );
 

@@ -1,0 +1,26 @@
+﻿@page "/"
+@using Markdig
+@using Markdig.CodeBlockHighlighter
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        string markdown =
+@"
+```csharp:foo.cs
+{
++    Console.WriteLine(""Diff Add"");
+-    Console.WriteLine(""Diff Remove"");
+    Console.WriteLine(""No Diff"");
+}
+``` 
+";
+
+        var pipeline = new MarkdownPipelineBuilder().UseCodeBlockHighlighter().Build();
+
+        var html = Markdown.ToHtml( markdown, pipeline );
+
+        Console.WriteLine( html );
+    }
+}

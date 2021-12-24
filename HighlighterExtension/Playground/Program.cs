@@ -9,7 +9,7 @@ void md()
 {
     var markdown =
 @"
-```csharp:foo.cs {#id .class}
+```csharp:foo.cs
 {
 +    Console.WriteLine(""Diff Add"");
 -    Console.WriteLine(""Diff Remove"");
@@ -18,10 +18,9 @@ void md()
 ``` 
 ";
 
-    var pipeline = new MarkdownPipelineBuilder().UseCodeBlockHighlighter( new PrismHighlighter() )/* .UseGenericAttributes() */.Build();
-    // var pipeline = new MarkdownPipelineBuilder().UseGenericAttributes().Build();
+    var pipeline = new MarkdownPipelineBuilder().UseCodeBlockHighlighter( /* new PrismHighlighter()  */ ).Build();
 
-    Environment.CurrentDirectory = @"C:\Users\McNerdius\Repos\MarkDigger\HighlighterExtension\PrismHighlighter";
+    // Environment.CurrentDirectory = @"C:\Users\McNerdius\Repos\MarkDigger\HighlighterExtension\PrismHighlighter";
 
     var html = Markdown.ToHtml( markdown, pipeline );
 
