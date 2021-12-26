@@ -9,21 +9,32 @@ public class PrismHighlighter : ICodeBlockHighlighter
         var file = Path.GetTempFileName();
         File.WriteAllLines( file, block.Lines );
 
-        var a = new Process
+        var p = new Process
+        {
+            StartInfo = new ProcessStartInfo( "npm" )
+            {
+                Arguments = "install",
+            }
+        };
+
+        p.Start();
+        p.WaitForExit();
+
+        p = new Process
         {
             StartInfo = new ProcessStartInfo( "node" )
             {
                 RedirectStandardOutput = true,
-                Arguments = $"mctest.js --file={file} --language={language}",
+                Arguments = $"mcprism.js --file={file} --language={language}",
             }
         };
 
-        a.Start();
-        a.WaitForExit();
+        p.Start();
+        p.WaitForExit();
 
         var lines = new List<string>();
 
-        while ( a.StandardOutput.ReadLine() is string s )
+        while ( p.StandardOutput.ReadLine() is string s )
         {
             lines.Add( s );
         }

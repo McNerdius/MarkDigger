@@ -10,4 +10,8 @@
         <PackageReference Include="DotnetActionsToolkit" Version="1.0.11" />
         <PackageReference Include="Markdig" Version="0.26.0" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\HighlighterExtension\HighlighterExtension\HighlighterExtension.csproj" />
+      <ProjectReference Include="..\HighlighterExtension\PrismHighlighter\PrismHighlighter.csproj" />
+    </ItemGroup>
 </Project>
