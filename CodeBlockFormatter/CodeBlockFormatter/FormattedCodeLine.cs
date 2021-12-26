@@ -1,8 +1,8 @@
 using Markdig.Renderers;
 
-namespace Markdig.CodeBlockHighlighter;
+namespace Markdig.CodeBlockFormatter;
 
-public record HighlightedCodeLine( bool? DiffState = null, string Content = "" )
+public record FormattedCodeLine( bool? DiffState = null, string Content = "" )
 {
     private string diffAttribute =>
              DiffState switch { null => "", true => "mc-ins", false => "mc-del" };

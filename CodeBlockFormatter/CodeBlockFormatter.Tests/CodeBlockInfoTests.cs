@@ -1,7 +1,7 @@
 using System;
 
 using Markdig;
-using Markdig.CodeBlockHighlighter;
+using Markdig.CodeBlockFormatter;
 
 using Xunit;
 
@@ -21,7 +21,7 @@ public class BasicTests
 ";
 
     static MarkdownPipeline pipeline
-        => new MarkdownPipelineBuilder().UseCodeBlockHighlighter()/* .UseGenericAttributes() */.Build();
+        => new MarkdownPipelineBuilder().UseCodeBlockFormatter()/* .UseGenericAttributes() */.Build();
 
     static string[] htmlLines
         => Markdown.ToHtml( testBlock, pipeline ).Split( '\n' );

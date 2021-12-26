@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 
-namespace Markdig.CodeBlockHighlighter.PrismHighlighter;
+namespace Markdig.CodeBlockFormatter.PrismHighlighter;
 
 public class PrismHighlighter : ICodeBlockHighlighter
 {
-    public HighlightedCodeBlock Highlight( string language, HighlightedCodeBlock block )
+    public FormattedCodeBlock Highlight( string language, FormattedCodeBlock block )
     {
         var file = Path.GetTempFileName();
         File.WriteAllLines( file, block.Lines );

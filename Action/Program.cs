@@ -1,8 +1,7 @@
-﻿using System.IO;
-using DotnetActionsToolkit;
+﻿using DotnetActionsToolkit;
 using Markdig;
-using Markdig.CodeBlockHighlighter;
-using Markdig.CodeBlockHighlighter.PrismHighlighter;
+using Markdig.CodeBlockFormatter;
+using Markdig.CodeBlockFormatter.PrismHighlighter;
 
 namespace MarkDigger;
 
@@ -41,22 +40,27 @@ public class Program
 
         static MarkdownPipeline createPipeline(string extensions)
         {
-            ICodeBlockHighlighter? highlighter = null;
+            CodeBlockFormatter? formatter = null;
 
             if (extensions.Contains("mcprism"))
             {
                 extensions = extensions.Replace("mcprism", "");
-                extensions = extensions.Replace("++", "+");
-                highlighter = new PrismHighlighter();
+                formatter = new CodeBlockFormatter(new PrismHighlighter());
             }
+            else if (extensions.Contains("mcformat"))
+            {
+                extensions = extensions.Replace("mcformat", "");
+                formatter = new CodeBlockFormatter(highlighter: null);
+            }
+
+            extensions = extensions.Replace("++", "+");
+            extensions = extensions.Trim('+');
 
             var pipeline = new MarkdownPipelineBuilder();
             pipeline.Configure(extensions);
 
-            if (highlighter is not null)
-            {
-                pipeline.UseCodeBlockHighlighter(highlighter);
-            }
+            if (formatter is not null)
+                pipeline.Use(formatter);
 
             return pipeline.Build();
         }

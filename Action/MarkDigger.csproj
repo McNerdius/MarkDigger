@@ -11,7 +11,7 @@
         <PackageReference Include="Markdig" Version="0.26.0" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\HighlighterExtension\HighlighterExtension\HighlighterExtension.csproj" />
-      <ProjectReference Include="..\HighlighterExtension\PrismHighlighter\PrismHighlighter.csproj" />
+        <ProjectReference Include="..\CodeBlockFormatter\CodeBlockFormatter\CodeBlockFormatter.csproj" />
+        <ProjectReference Include="..\CodeBlockFormatter\PrismHighlighter\PrismHighlighter.csproj" />
     </ItemGroup>
 </Project>

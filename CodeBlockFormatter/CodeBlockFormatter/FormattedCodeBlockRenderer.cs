@@ -3,14 +3,14 @@ using Markdig.Renderers;
 using Markdig.Renderers.Html;
 using Markdig.Syntax;
 
-namespace Markdig.CodeBlockHighlighter;
+namespace Markdig.CodeBlockFormatter;
 
-public class HighlightedCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
+public class FormattedCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
 {
     private readonly CodeBlockRenderer codeBlockRenderer;
     private readonly ICodeBlockHighlighter? highlighter;
 
-    public HighlightedCodeBlockRenderer(
+    public FormattedCodeBlockRenderer(
         CodeBlockRenderer? codeBlockRenderer,
         ICodeBlockHighlighter? highlighter )
     {
@@ -36,7 +36,7 @@ public class HighlightedCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
             _ => throw new NotSupportedException()
         };
 
-        var codeBlock = new HighlightedCodeBlock( filename );
+        var codeBlock = new FormattedCodeBlock( filename );
 
         extractCode( node, codeBlock );
 
@@ -46,7 +46,7 @@ public class HighlightedCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
         codeBlock.Render( renderer );
     }
 
-    internal void extractCode( LeafBlock node, HighlightedCodeBlock codeBlock )
+    internal void extractCode( LeafBlock node, FormattedCodeBlock codeBlock )
     {
         var lines = node.Lines.Lines;
         var totalLines = lines.Length;

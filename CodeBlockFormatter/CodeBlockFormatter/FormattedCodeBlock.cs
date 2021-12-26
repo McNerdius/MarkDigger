@@ -1,10 +1,10 @@
 using Markdig.Renderers;
 
-namespace Markdig.CodeBlockHighlighter;
+namespace Markdig.CodeBlockFormatter;
 
-public record HighlightedCodeBlock( string FileName = "" )
+public record FormattedCodeBlock( string FileName = "" )
 {
-    private List<HighlightedCodeLine> lineInfo = new();
+    private List<FormattedCodeLine> lineInfo = new();
 
     public void Trim() => lineInfo = lineInfo.Trim().ToList();
 
@@ -26,7 +26,7 @@ public record HighlightedCodeBlock( string FileName = "" )
             {
                 lineInfo = lineInfo.Zip
                 (
-                    value, ( info, content ) => new HighlightedCodeLine( info.DiffState, content )
+                    value, ( info, content ) => new FormattedCodeLine( info.DiffState, content )
                 ).ToList();
             }
         }

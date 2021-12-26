@@ -1,6 +1,6 @@
 ﻿@page "/"
 @using Markdig
-@using Markdig.CodeBlockHighlighter
+@using Markdig.CodeBlockFormatter
 
 @code
 {
@@ -17,7 +17,7 @@
 ``` 
 ";
 
-        var pipeline = new MarkdownPipelineBuilder().UseCodeBlockHighlighter().Build();
+        var pipeline = new MarkdownPipelineBuilder().UseCodeBlockFormatter().Build();
 
         var html = Markdown.ToHtml( markdown, pipeline );
 

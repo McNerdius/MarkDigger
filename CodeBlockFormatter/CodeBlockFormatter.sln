@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlighterExtension", "HighlighterExtension\HighlighterExtension.csproj", "{B88A4022-6B44-40B7-9D67-AB58847E48C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBlockFormatter", "CodeBlockFormatter\CodeBlockFormatter.csproj", "{B88A4022-6B44-40B7-9D67-AB58847E48C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Playground.csproj", "{4184F5C3-FB14-4E2E-BEA4-3E37F14BB8E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlighterExtension.Tests", "HighlighterExtension.Tests\HighlighterExtension.Tests.csproj", "{4D393E2B-B291-484B-98B6-E32B60D73128}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBlockFormatter.Tests", "CodeBlockFormatter.Tests\CodeBlockFormatter.Tests.csproj", "{4D393E2B-B291-484B-98B6-E32B60D73128}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismHighlighter", "PrismHighlighter\PrismHighlighter.csproj", "{33D168D1-94C6-4C07-AC02-F62DD7C02481}"
 EndProject

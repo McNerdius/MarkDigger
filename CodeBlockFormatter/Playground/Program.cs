@@ -2,8 +2,8 @@
 using System.IO;
 
 using Markdig;
-using Markdig.CodeBlockHighlighter;
-using Markdig.CodeBlockHighlighter.PrismHighlighter;
+using Markdig.CodeBlockFormatter;
+using Markdig.CodeBlockFormatter.PrismHighlighter;
 
 void md()
 {
@@ -18,7 +18,7 @@ void md()
 ``` 
 ";
 
-    var pipeline = new MarkdownPipelineBuilder().UseCodeBlockHighlighter( /* new PrismHighlighter()  */ ).Build();
+    var pipeline = new MarkdownPipelineBuilder().UseCodeBlockFormatter( /* new PrismHighlighter()  */ ).Build();
 
     // Environment.CurrentDirectory = @"C:\Users\McNerdius\Repos\MarkDigger\HighlighterExtension\PrismHighlighter";
 

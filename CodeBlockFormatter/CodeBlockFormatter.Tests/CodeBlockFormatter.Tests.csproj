@@ -18,6 +18,6 @@
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\HighlighterExtension\HighlighterExtension.csproj" />
+        <ProjectReference Include="..\CodeBlockFormatter\CodeBlockFormatter.csproj" />
     </ItemGroup>
 </Project>

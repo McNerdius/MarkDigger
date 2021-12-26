@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <ProjectReference Include="..\HighlighterExtension\HighlighterExtension.csproj" />
+        <ProjectReference Include="..\CodeBlockFormatter\CodeBlockFormatter.csproj" />
         <ProjectReference Include="..\PrismHighlighter\PrismHighlighter.csproj" />
     </ItemGroup>
     <ItemGroup>

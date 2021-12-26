@@ -1,8 +1,8 @@
-global using static Markdig.CodeBlockHighlighter.HtmlAttributeHelper;
+global using static Markdig.CodeBlockFormatter.HtmlAttributeHelper;
 
 using Markdig.Renderers.Html;
 
-namespace Markdig.CodeBlockHighlighter;
+namespace Markdig.CodeBlockFormatter;
 
 
 static class HtmlAttributeHelper
@@ -25,7 +25,7 @@ public static class TrimEmptyLinesExtensions
 
     }
 
-    public static IEnumerable<HighlightedCodeLine> Trim( this IEnumerable<HighlightedCodeLine> source )
+    public static IEnumerable<FormattedCodeLine> Trim( this IEnumerable<FormattedCodeLine> source )
     {
         var strings = source.Select( element => element.Content );
 
