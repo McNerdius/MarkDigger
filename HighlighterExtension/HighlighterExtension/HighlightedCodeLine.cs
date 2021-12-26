@@ -1,25 +1,24 @@
 using Markdig.Renderers;
-using Markdig.Renderers.Html;
 
 namespace Markdig.CodeBlockHighlighter;
 
 public record HighlightedCodeLine( bool? DiffState = null, string Content = "" )
 {
-    private HtmlAttributes diffAttribute
-        => HtmlAttributeHelper.ClassAttribute( DiffState switch { null => "", true => "mc-ins", false => "mc-del" } );
+    private string diffAttribute =>
+             DiffState switch { null => "", true => "mc-ins", false => "mc-del" };
 
     public void Render( HtmlRenderer renderer )
     {
         ArgumentNullException.ThrowIfNull( Content );
 
         renderer.Write( "<div" );
-        renderer.WriteAttributes( diffAttribute );
+        renderer.WriteAttributes( CSS( "mc-diff", diffAttribute ) );
         renderer.Write( "></div> " );
 
         renderer.Write( "<pre" );
-        renderer.WriteAttributes( HtmlAttributeHelper.ClassAttribute( "mc-code" ) );
+        renderer.WriteAttributes( CSS( "mc-code", diffAttribute ) );
         renderer.Write( ">" );
-        renderer.Write( Content );
+        renderer.WriteEscape( Content );
         renderer.WriteLine( "</pre>" );
     }
 }

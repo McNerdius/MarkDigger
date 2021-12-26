@@ -1,10 +1,13 @@
+global using static Markdig.CodeBlockHighlighter.HtmlAttributeHelper;
+
 using Markdig.Renderers.Html;
 
 namespace Markdig.CodeBlockHighlighter;
 
+
 static class HtmlAttributeHelper
 {
-    public static HtmlAttributes ClassAttribute( params string[] classes )
+    public static HtmlAttributes CSS( params string[] classes )
     {
         var attribute = new HtmlAttributes();
         // pattern match handles nulls too

@@ -36,26 +36,32 @@ public record HighlightedCodeBlock( string FileName = "" )
     {
         // mc-code-block: 2*n css grid
         renderer.Write( "<div" );
-        renderer.WriteAttributes( HtmlAttributeHelper.ClassAttribute( "mc-code-block" ) );
+        renderer.WriteAttributes( CSS( "mc-code-block", "not-prose" ) );
         renderer.WriteLine( ">" );
 
-        if ( FileName.Length > 0 )
+        // if ( FileName.Length > 0 )
         { // mc-code-filename: colspan 2
             renderer.Write( "<div" );
-            renderer.WriteAttributes( HtmlAttributeHelper.ClassAttribute( "mc-code-filename" ) );
+            renderer.WriteAttributes( CSS( "mc-code-filename" ) );
             renderer.Write( ">" );
 
-            renderer.Write( FileName );
+            if ( FileName.Length > 0 )
+                renderer.Write( FileName );
 
             renderer.WriteLine( "</div>" );
         }
+
+        renderer.Write( "<div" );
+        renderer.WriteAttributes( CSS( "mc-code-lines" ) );
+        renderer.WriteLine( ">" );
 
         { // CodeLineInfo == 2 divs
             foreach ( var line in lineInfo.Trim() )
                 line.Render( renderer );
         }
 
-        // /mc-code-block
-        renderer.WriteLine( "</div>" );
+        // </mc-code-lines> </mc-code-block>
+        renderer.WriteLine( "</div></div>" );
+
     }
 }
