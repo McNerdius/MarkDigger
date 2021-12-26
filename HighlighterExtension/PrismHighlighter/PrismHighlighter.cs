@@ -9,18 +9,18 @@ public class PrismHighlighter : ICodeBlockHighlighter
         var file = Path.GetTempFileName();
         File.WriteAllLines( file, block.Lines );
 
+        // var p = new Process
+        // {
+        //     StartInfo = new ProcessStartInfo( "npm" )
+        //     {
+        //         Arguments = "install",
+        //     }
+        // };
+
+        // p.Start();
+        // p.WaitForExit();
+
         var p = new Process
-        {
-            StartInfo = new ProcessStartInfo( "npm" )
-            {
-                Arguments = "install",
-            }
-        };
-
-        p.Start();
-        p.WaitForExit();
-
-        p = new Process
         {
             StartInfo = new ProcessStartInfo( "node" )
             {

@@ -16,10 +16,10 @@ if ($LASTEXITCODE -ne 0) {
   exit $LASTEXITCODE
 }
 
-Copy-Item .\HighlighterExtension\PrismHighlighter\mcprism.js .\Action\linux-x64\
-Copy-Item .\HighlighterExtension\PrismHighlighter\mcprism.js .\Action\osx-x64\
-Copy-Item .\HighlighterExtension\PrismHighlighter\mcprism.js .\Action\win-x64\
+# Copy-Item .\HighlighterExtension\PrismHighlighter\mcprism.js .\Action\linux-x64\
+# Copy-Item .\HighlighterExtension\PrismHighlighter\mcprism.js .\Action\osx-x64\
+# Copy-Item .\HighlighterExtension\PrismHighlighter\mcprism.js .\Action\win-x64\
 
-Copy-Item .\HighlighterExtension\PrismHighlighter\package.json .\Action\linux-x64\
-Copy-Item .\HighlighterExtension\PrismHighlighter\package.json .\Action\osx-x64\
-Copy-Item .\HighlighterExtension\PrismHighlighter\package.json .\Action\win-x64\
+# Copy-Item .\HighlighterExtension\PrismHighlighter\package.json .\Action\linux-x64\
+# Copy-Item .\HighlighterExtension\PrismHighlighter\package.json .\Action\osx-x64\
+# Copy-Item .\HighlighterExtension\PrismHighlighter\package.json .\Action\win-x64\
