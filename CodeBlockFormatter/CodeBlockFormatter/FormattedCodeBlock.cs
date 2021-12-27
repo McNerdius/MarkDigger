@@ -32,7 +32,7 @@ public record FormattedCodeBlock( string FileName = "" )
         }
     }
 
-    public void Render( HtmlRenderer renderer )
+    public void Render( HtmlRenderer renderer, bool escape )
     {
         // mc-code-block: 2*n css grid
         renderer.Write( "<div" );
@@ -57,7 +57,7 @@ public record FormattedCodeBlock( string FileName = "" )
 
         { // CodeLineInfo == 2 divs
             foreach ( var line in lineInfo.Trim() )
-                line.Render( renderer );
+                line.Render( renderer, escape );
         }
 
         // </mc-code-lines> </mc-code-block>

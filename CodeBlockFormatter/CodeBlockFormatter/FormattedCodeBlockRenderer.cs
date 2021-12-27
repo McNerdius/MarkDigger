@@ -43,7 +43,7 @@ public class FormattedCodeBlockRenderer : HtmlObjectRenderer<CodeBlock>
         if ( highlighter is not null )
             codeBlock = highlighter.Highlight( language, codeBlock );
 
-        codeBlock.Render( renderer );
+        codeBlock.Render( renderer, escape: highlighter is null );
     }
 
     internal void extractCode( LeafBlock node, FormattedCodeBlock codeBlock )

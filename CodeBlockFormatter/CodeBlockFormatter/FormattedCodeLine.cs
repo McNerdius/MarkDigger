@@ -7,7 +7,7 @@ public record FormattedCodeLine( bool? DiffState = null, string Content = "" )
     private string diffAttribute =>
              DiffState switch { null => "", true => "mc-ins", false => "mc-del" };
 
-    public void Render( HtmlRenderer renderer )
+    public void Render( HtmlRenderer renderer, bool escape )
     {
         ArgumentNullException.ThrowIfNull( Content );
 
@@ -18,7 +18,13 @@ public record FormattedCodeLine( bool? DiffState = null, string Content = "" )
         renderer.Write( "<pre" );
         renderer.WriteAttributes( CSS( "mc-code", diffAttribute ) );
         renderer.Write( ">" );
-        renderer.WriteEscape( Content );
+
+        // only escape if no highlighter is in use
+        if ( escape )
+            renderer.WriteEscape( Content );
+        else
+            renderer.Write( Content );
+
         renderer.WriteLine( "</pre>" );
     }
 }
