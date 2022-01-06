@@ -3,6 +3,11 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>WasmPlayground</RootNamespace>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <IntermediateOutputPath>obj</IntermediateOutputPath>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="markdig" Version="0.26.0" />
